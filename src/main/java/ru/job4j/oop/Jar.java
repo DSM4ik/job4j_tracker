@@ -3,11 +3,11 @@ package ru.job4j.oop;
 public class Jar {
     private int value;
 
-    public Jar(int value){
+    public Jar(int value) {
         this.value = value;
     }
 
-    public void poor(Jar another){
+    public void poor(Jar another) {
         this.value = this.value + another.value;
         another.value = 0;
     }
