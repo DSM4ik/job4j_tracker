@@ -18,7 +18,7 @@ public class Triangle {
     }
 
     public boolean exist(double ab, double ac, double bc) {
-        return ((ab + ac) > bc) && ((ac + bc) > ab) && ((ab + bc) > ac);
+        return (ab + ac) > bc && (ac + bc) > ab && (ab + bc) > ac;
     }
 
     public double area() {
@@ -26,9 +26,9 @@ public class Triangle {
         double ab = first.distance(second);
         double ac = first.distance(third);
         double bc = second.distance(third);
-        double p = period(ab, ac, bc);
         if (this.exist(ab, ac, bc)) {
             /* написать формулу для расчета площади треугольника. */
+            double p = period(ab, ac, bc);
             rsl = sqrt(p * (p - ab) * (p - ac) * (p - bc));
         }
         return rsl;
