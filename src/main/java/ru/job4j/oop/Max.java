@@ -10,7 +10,11 @@ public class Max {
     }
 
     public static int max(int a, int b, int c) {
-        return (max(a, b) == a && max(a, c) == a) ? a : (max(a, b) == b && max(b, c) == b) ? b : c;
+        return max(max(a, b), c);
+    }
+
+    public static int max(int a, int b, int c, int d) {
+        return max(max(a, b), max(c, d));
     }
 
 }

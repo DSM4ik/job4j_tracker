@@ -19,4 +19,10 @@ public class MaxTest {
         int rsl = Max.max(2,3, 5);
         assertThat(rsl, is(5));
     }
+
+    @Test
+    public void max4values() {
+        int rsl = Max.max(9,7, 5, 8);
+        assertThat(rsl, is(9));
+    }
 }
