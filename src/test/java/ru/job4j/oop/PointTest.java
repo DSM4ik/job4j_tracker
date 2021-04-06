@@ -9,7 +9,7 @@ import static org.junit.Assert.assertThat;
 public class PointTest {
 
     @Test
-    public void distance_2() {
+    public void distanceIs2() {
         Point a = new Point(0, 0);
         Point b = new Point(0, 2);
         double rslt = a.distance(b);
@@ -18,7 +18,7 @@ public class PointTest {
     }
 
     @Test
-    public void distance_3() {
+    public void distanceIs3() {
         Point a = new Point(3, 0);
         Point b = new Point(0, 0);
         double rslt = a.distance(b);
@@ -27,7 +27,7 @@ public class PointTest {
     }
 
     @Test
-    public void distance3d_3() {
+    public void distance3dIs3() {
         Point a = new Point(0, 0, 0);
         Point b = new Point(3, 0, 0);
         double rslt = a.distance3d(b);
@@ -35,7 +35,7 @@ public class PointTest {
     }
 
     @Test
-    public void distance3d_4() {
+    public void distance3dIs4() {
         Point a = new Point(0, 4, 0);
         Point b = new Point(0, 0, 0);
         double rslt = a.distance3d(b);
