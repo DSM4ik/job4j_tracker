@@ -6,7 +6,6 @@ public class Pacient {
     private int yearsOld;
     private boolean isHealthy;
 
-    @SuppressWarnings("checkstyle:EmptyLineSeparator")
     public boolean getStats() {
         return isHealthy;
     }
