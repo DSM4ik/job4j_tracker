@@ -18,7 +18,9 @@ import java.util.Arrays;
  * Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его.
  * Алгоритм этого метода аналогичен методу findAll.
  *
+ * Метод private int indexOf(int id) - возврашает index по id
  *
+ * Метод public boolean replace(int id, Item item) - метод замены заявки
  */
 public class Tracker {
     private final Item[] items = new Item[100];
@@ -32,15 +34,10 @@ public class Tracker {
     }
 
     public Item findById(int id) {
-        Item rsl = null;
-        for (int index = 0; index < size; index++) {
-            Item item = items[index];
-            if (item.getId() == id) {
-                rsl = item;
-                break;
-            }
-        }
-        return rsl;
+        /* Находим индекс */
+        int index = indexOf(id);
+        /* Если индекс найден возвращаем item, иначе null */
+        return index != -1 ? items[index] : null;
     }
 
     public Item[] findAll() {
@@ -63,5 +60,22 @@ public class Tracker {
             }
         }
         return  Arrays.copyOf(rsl, indexRsl);
+    }
+
+    private int indexOf(int id) {
+        int rsl = -1;
+        for (int index = 0; index < size; index++) {
+            if (items[index].getId() == id) {
+                rsl = index;
+                break;
+            }
+        }
+        return rsl;
+    }
+
+    public boolean replace(int id, Item item) {
+        int indexID = indexOf(id);
+        items[indexID].setName(item.getName());
+        return indexID == -1 ? false : true;
     }
 }
