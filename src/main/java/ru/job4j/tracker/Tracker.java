@@ -51,8 +51,7 @@ public class Tracker {
                 rsl[indexRsl++] = items[i];
             }
         }
-        rsl = Arrays.copyOf(rsl, indexRsl);
-        return rsl;
+        return Arrays.copyOf(rsl, indexRsl);
     }
 
     public Item[] findByName(String key) {
@@ -63,7 +62,6 @@ public class Tracker {
                 rsl[indexRsl++] = items[i];
             }
         }
-        rsl = Arrays.copyOf(rsl, indexRsl);
-        return rsl;
+        return  Arrays.copyOf(rsl, indexRsl);
     }
 }
