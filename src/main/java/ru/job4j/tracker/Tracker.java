@@ -21,6 +21,8 @@ import java.util.Arrays;
  * Метод private int indexOf(int id) - возврашает index по id
  *
  * Метод public boolean replace(int id, Item item) - метод замены заявки
+ *
+ * public boolean delete(int id) - метод удаления заявки
  */
 public class Tracker {
     private final Item[] items = new Item[100];
@@ -41,14 +43,7 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] rsl = new Item[size];
-        int indexRsl = 0;
-        for (int i = 0; i < size; i++) {
-            if (items[i] != null) {
-                rsl[indexRsl++] = items[i];
-            }
-        }
-        return Arrays.copyOf(rsl, indexRsl);
+        return Arrays.copyOf(items, size);
     }
 
     public Item[] findByName(String key) {
@@ -75,7 +70,12 @@ public class Tracker {
 
     public boolean replace(int id, Item item) {
         int indexID = indexOf(id);
-        items[indexID].setName(item.getName());
+        Item newItem = new Item(id, item.getName());
+        items[indexID] = newItem;
         return indexID == -1 ? false : true;
+    }
+
+    public boolean delete(int id) {
+        return false;
     }
 }
