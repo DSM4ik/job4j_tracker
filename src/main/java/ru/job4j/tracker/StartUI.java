@@ -19,7 +19,7 @@ public class StartUI {
 
     public static void editItem(Input input, Tracker tracker) {
         System.out.println("=== Edit Item ====");
-        int idItem = Integer.valueOf(input.askStr("Enter id item"));
+        int idItem = input.askInt("Enter id item");
         String newItemName = input.askStr("Enter new name Item");
         Item itm = new Item(newItemName);
         //блок валидации, если Item с введенным id не был найден
@@ -32,7 +32,7 @@ public class StartUI {
 
     public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Delete Item ====");
-        int idDel = Integer.valueOf(input.askStr("Enter id Item for delete"));
+        int idDel = input.askInt("Enter id Item for delete");
         if (tracker.delete(idDel)) {
             System.out.println("Item delete succesfully");
         } else {
@@ -42,7 +42,7 @@ public class StartUI {
 
     public static void findItemById(Input input, Tracker tracker) {
         System.out.println("=== Find item by id ====");
-        int idFind = Integer.valueOf(input.askStr("Enter id Item for Find"));
+        int idFind = input.askInt("Enter id Item for Find");
         Item itemFind = tracker.findById(idFind);
         //блок валидации, если Item с введенным id не был найден
         if (itemFind == null) {
@@ -70,7 +70,7 @@ public class StartUI {
         boolean run = true;
         while (run) {
             this.showMenu();
-            int select = Integer.valueOf(input.askStr("Select"));
+            int select = input.askInt("Select");
             switch (select) {
                 case 0:
                     StartUI.createItem(input, tracker);
