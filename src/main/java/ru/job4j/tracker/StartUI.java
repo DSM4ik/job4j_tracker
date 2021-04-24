@@ -17,7 +17,7 @@ public class StartUI {
         }
     }
 
-    public static void editItem(Input input, Tracker tracker) {
+    public static void replaceItem(Input input, Tracker tracker) {
         System.out.println("=== Edit Item ====");
         int idItem = input.askInt("Enter id item");
         String newItemName = input.askStr("Enter new name Item");
@@ -79,7 +79,7 @@ public class StartUI {
                     StartUI.showAllItems(input, tracker);
                     break;
                 case 2:
-                    StartUI.editItem(input, tracker);
+                    StartUI.replaceItem(input, tracker);
                     break;
                 case 3:
                     StartUI.deleteItem(input, tracker);
