@@ -11,7 +11,6 @@ public class FindByIdAction implements UserAction {
         System.out.println("=== Find item by id ====");
         int idFind = input.askInt("Enter id Item for Find");
         Item itemFind = tracker.findById(idFind);
-        //блок валидации, если Item с введенным id не был найден
         if (itemFind == null) {
             System.out.println("Can't find Item with id = " + idFind);
         } else {
