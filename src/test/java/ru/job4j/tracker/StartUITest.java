@@ -63,7 +63,7 @@ public class StartUITest {
         /* Входные данные должны содержать ID добавленной заявки item.getId() */
         String replacedName = "New Item name";
         Input in = new StubInput(new String[] {"0",String.valueOf(item.getId()),replacedName,"1"});
-        UserAction[] actions = {new ReplaceAction(),
+        UserAction[] actions = {new ReplaceAction(new ConsoleOutput()),
                                 new ExitAction()};
         new StartUI(new ConsoleOutput()).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
@@ -79,7 +79,7 @@ public class StartUITest {
                 new String[] {"0", String.valueOf(item.getId()) ,"1"}
         );
         UserAction[] actions = {
-                new DeleteAction(),
+                new DeleteAction(new ConsoleOutput()),
                 new ExitAction()
         };
         new StartUI(new ConsoleOutput()).init(in, tracker, actions);
@@ -102,4 +102,5 @@ public class StartUITest {
                         "0. Exit" + System.lineSeparator()
         ));
     }
+
 }
