@@ -62,7 +62,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("Replaced Item"));
         /* Входные данные должны содержать ID добавленной заявки item.getId() */
         String replacedName = "New Item name";
-        Input in = new StubInput(new String[] {"0","1","New Item name","1"});
+        Input in = new StubInput(new String[] {"0",String.valueOf(item.getId()),replacedName,"1"});
         UserAction[] actions = {new ReplaceAction(),
                                 new ExitAction()};
         new StartUI(new ConsoleOutput()).init(in, tracker, actions);
