@@ -14,7 +14,7 @@ public class StartUITest {
         Input in = new StubInput(new String[] {"0", "Item name", "1"});
         Tracker tracker = new Tracker();
         UserAction[] actions = {new CreateAction(new ConsoleOutput()),
-                                new ExitAction()};
+                                new ExitAction(new ConsoleOutput())};
         new StartUI(new ConsoleOutput()).init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName(), is("Item name"));
     }
@@ -28,7 +28,7 @@ public class StartUITest {
         String replacedName = "New Item name";
         Input in = new StubInput(new String[] {"0",String.valueOf(item.getId()),replacedName,"1"});
         UserAction[] actions = {new ReplaceAction(new ConsoleOutput()),
-                                new ExitAction()};
+                                new ExitAction(new ConsoleOutput())};
         new StartUI(new ConsoleOutput()).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
     }
@@ -44,7 +44,7 @@ public class StartUITest {
         );
         UserAction[] actions = {
                 new DeleteAction(new ConsoleOutput()),
-                new ExitAction()
+                new ExitAction(new ConsoleOutput())
         };
         new StartUI(new ConsoleOutput()).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));
@@ -58,7 +58,7 @@ public class StartUITest {
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new ExitAction()
+                new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
@@ -78,7 +78,7 @@ public class StartUITest {
         tracker.add(item);
         UserAction[] actions = {
                      new ShowAction(out),
-                     new ExitAction()
+                     new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
 
@@ -106,7 +106,7 @@ public class StartUITest {
 
         UserAction[] actions = {
                 new FindByNameAction(out),
-                new ExitAction()
+                new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
@@ -135,7 +135,7 @@ public class StartUITest {
 
         UserAction[] actions = {
                 new FindByIdAction(out),
-                new ExitAction()
+                new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
@@ -150,6 +150,24 @@ public class StartUITest {
 
         ));
 
+    }
+
+    @Test
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(new String[] {"1", "0"});
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {new ExitAction(out)};
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu." + ln
+                        + "0. Exit" + ln
+                        + "Wrong input, you can select: 0 .. 0" + ln
+                        + "Menu." + ln
+                        + "0. Exit" + ln
+                )
+        );
     }
 
 
