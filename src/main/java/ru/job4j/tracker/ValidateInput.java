@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+/**
+ * Здесь использвуется шаблон декоратор
+ */
 public class ValidateInput implements Input {
     private final Output out;
     private final Input in;
@@ -23,7 +26,7 @@ public class ValidateInput implements Input {
                 value = in.askInt(question);
                 invalid = false;
             } catch (NumberFormatException e) {
-                System.out.println("Please enter validate data again.");
+                out.println("Please enter validate data again.");
             }
         } while (invalid);
 
