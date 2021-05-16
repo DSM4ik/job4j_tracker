@@ -6,7 +6,6 @@ import static org.hamcrest.core.IsNull.nullValue;
 import static org.hamcrest.Matchers.is;
 import static  org.hamcrest.MatcherAssert.assertThat;
 
-
 public class TrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {

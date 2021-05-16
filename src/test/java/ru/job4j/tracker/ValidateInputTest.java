@@ -5,7 +5,6 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-
 public class ValidateInputTest {
 
     @Test
@@ -39,9 +38,8 @@ public class ValidateInputTest {
         );
         ValidateInput input = new ValidateInput(out, in);
         int[] val = {input.askInt("Enter menu:"),
-                     input.askInt("Enter menu:")} ;
-
-        assertThat(val, is(new int[] {1,1}));
+                     input.askInt("Enter menu:")};
+        assertThat(val, is(new int[] {1, 1}));
     }
 
     @Test
@@ -54,6 +52,4 @@ public class ValidateInputTest {
         int selected = input.askInt("Enter menu:");
         assertThat(selected, is(-1));
     }
-
-
 }

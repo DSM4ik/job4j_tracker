@@ -10,8 +10,8 @@ public class ConvertList {
     public static List<Integer> convert(List<int[]> list) {
         List<Integer> rsl = new ArrayList<>();
         /// for-each
-        for(int[] arr : list) {
-            for(int cell : arr) {
+        for (int[] arr : list) {
+            for (int cell : arr) {
                 rsl.add(cell);
             }
         }

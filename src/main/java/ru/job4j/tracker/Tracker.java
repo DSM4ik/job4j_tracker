@@ -26,7 +26,7 @@ import java.util.Arrays;
  * public boolean delete(int id) - метод удаления заявки
  */
 public class Tracker {
-    ArrayList<Item> items = new ArrayList<Item>();
+    private ArrayList<Item> items = new ArrayList<Item>();
     //private final Item[] items = new Item[100];
     private int ids = 1;
     private int size = 0;
@@ -63,7 +63,7 @@ public class Tracker {
     private int indexOf(int id) {
         int rsl = -1;
         for (Item itm : items) {
-            if(itm.getId() == id) {
+            if (itm.getId() == id) {
                 rsl = items.indexOf(itm);
             }
         }
