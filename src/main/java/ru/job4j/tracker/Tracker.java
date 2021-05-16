@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 /**
  * -Метод public Item add(Item item) добавляет заявку,
@@ -26,14 +26,11 @@ import java.util.Arrays;
  * public boolean delete(int id) - метод удаления заявки
  */
 public class Tracker {
-    private ArrayList<Item> items = new ArrayList<Item>();
-    //private final Item[] items = new Item[100];
+    private final List<Item> items = new ArrayList<Item>();
     private int ids = 1;
-    private int size = 0;
 
     public Item add(Item item) {
         item.setId(ids++);
-        size++;
         items.add(item);
         return item;
     }
@@ -45,13 +42,16 @@ public class Tracker {
         return index != -1 ? items.get(index) : null;
     }
 
-    public ArrayList<Item> findAll() {
-        return items;
+    public List<Item> findAll() {
+        List<Item> all = new ArrayList<Item>();
+        for (Item itm : items) {
+            all.add(itm);
+        }
+        return all;
     }
 
-    public ArrayList<Item> findByName(String key) {
-        ArrayList<Item> rsl = new ArrayList<Item>();
-
+    public List<Item> findByName(String key) {
+        List<Item> rsl = new ArrayList<Item>();
         for (Item itm : items) {
             if (itm.getName().equals(key)) {
                 rsl.add(itm);
@@ -84,7 +84,6 @@ public class Tracker {
         int indexFind = indexOf(id);
         if (indexFind != -1) {
             items.remove(indexFind);
-            size--;
             return true;
         }
         return false;
