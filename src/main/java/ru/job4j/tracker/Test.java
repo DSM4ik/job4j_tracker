@@ -1,7 +1,7 @@
-package ru.job4j.test;
+package ru.job4j.tracker;
 
 public class Test {
     public static void main(String[] args) {
-        System.out.println("Test77888ааа77")
+        System.out.println("Hello);
     }
 }
