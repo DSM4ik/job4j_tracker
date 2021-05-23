@@ -18,3 +18,7 @@ notifications:
       - den.mitskevich@hotmail.com
     on_success: never # default: change
     on_failure: always # default: always
+
+env:
+  global:
+    - CODECOV_TOKEN="3efe8417-ed42-40fa-b798-9a85a0bff32b"
