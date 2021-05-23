@@ -2,6 +2,6 @@ package ru.job4j.test;
 
 public class Test {
     public static void main(String[] args) {
-        System.out.println("Test7777");
+        System.out.println("Test7788877");
     }
 }
