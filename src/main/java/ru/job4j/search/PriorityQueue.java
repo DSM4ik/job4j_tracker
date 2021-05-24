@@ -29,6 +29,7 @@ public class PriorityQueue {
         }
         this.tasks.add(index, task);
     }
+
     /**
      * Метод позволяет получить первую задачу в очереди
      * @return возвращает задачу из головы очереди или null если очередь пуста
