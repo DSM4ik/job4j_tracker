@@ -1,4 +1,4 @@
-package ru.job4j.exercise_job4j.collections;
+package ru.job4j.exercisejob4j.collections;
 
 import org.junit.Test;
 
