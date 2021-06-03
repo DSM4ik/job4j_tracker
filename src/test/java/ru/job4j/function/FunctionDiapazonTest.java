@@ -17,4 +17,18 @@ public class FunctionDiapazonTest {
         assertThat(result, is(expected));
     }
 
+    @Test
+    public void whenSquadFunctionThenSquadResults() {
+        List<Double> result = FunctionDiapazon.diapason(1, 3, x -> 2 * Math.pow(x, 2) + 1);
+        List<Double> expected = Arrays.asList(3D, 9D);
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void whenRateFunctionThenRateResults() {
+        List<Double> result = FunctionDiapazon.diapason(2, 5, x -> 2 * Math.pow(x, x) + 1);
+        List<Double> expected = Arrays.asList(9D, 55D, 513D);
+        assertThat(result, is(expected));
+    }
+
 }
