@@ -26,8 +26,8 @@ public class FunctionDiapazonTest {
 
     @Test
     public void whenRateFunctionThenRateResults() {
-        List<Double> result = FunctionDiapazon.diapason(2, 5, x -> 2 * Math.pow(x, x) + 1);
-        List<Double> expected = Arrays.asList(9D, 55D, 513D);
+        List<Double> result = FunctionDiapazon.diapason(2, 5, x -> 2 * Math.pow(2, x) + 1);
+        List<Double> expected = Arrays.asList(9D, 17D, 33D);
         assertThat(result, is(expected));
     }
 
