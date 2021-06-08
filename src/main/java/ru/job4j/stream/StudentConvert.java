@@ -20,7 +20,6 @@ public class StudentConvert {
         Map<String, Student> studentMap;
         studentMap = students
                     .stream()
-                    .distinct()
                     .collect(Collectors.toMap(
                                              s -> s.getSurname(),
                                              s -> s,
