@@ -1,5 +1,6 @@
 package ru.job4j.stream;
 
+import javax.print.DocFlavor;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,8 +18,7 @@ import java.util.stream.Collectors;
  */
 public class StudentConvert {
     public static Map<String, Student> convert(List<Student> students) {
-        Map<String, Student> studentMap;
-        studentMap = students
+        return students
                     .stream()
                     .collect(Collectors.toMap(
                                              s -> s.getSurname(),
@@ -26,6 +26,5 @@ public class StudentConvert {
                                              (val1, val2) -> val1
                                              )
                             );
-        return studentMap;
     }
 }
