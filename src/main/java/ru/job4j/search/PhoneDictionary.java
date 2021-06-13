@@ -20,8 +20,8 @@ public class PhoneDictionary {
                                     .or(surnameFind)
                                     .or(addressFind);
 
-        ArrayList<Person> result = new ArrayList<Person>();
-        for (Person p : persons) {
+        var result = new ArrayList<Person>();
+        for (var p : persons) {
             if (combine.test(p)) {
                 result.add(p);
             }
