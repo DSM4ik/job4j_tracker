@@ -20,11 +20,10 @@ public class FreezeStr {
 
             if (mapLeft.containsKey(rihgtChar) && mapLeft.get(rihgtChar) == 1) {
                 mapLeft.remove(rihgtChar);
-            }
-
-            if (mapLeft.containsKey(rihgtChar) && mapLeft.get(rihgtChar) > 1) {
+            } else {
                 mapLeft.put(rihgtChar, mapLeft.get(rihgtChar) - 1);
             }
+
         }
 
         return mapLeft.isEmpty();
