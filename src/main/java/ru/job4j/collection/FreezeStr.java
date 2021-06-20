@@ -8,24 +8,26 @@ public class FreezeStr {
         char[] arrLeft = left.toCharArray();
         char[] arrRight = right.toCharArray();
         Map<Character, Integer> mapLeft = new HashMap<>();
-        Map<Character, Integer> mapRight = new HashMap<>();
 
         for (Character symb : arrLeft) {
             mapLeft.put(symb, countInput(left, symb));
         }
 
-        for (Character symb : arrRight) {
-            mapRight.put(symb, countInput(right, symb));
+        for (char rihgtChar : arrRight) {
+            if (!mapLeft.containsKey(rihgtChar)) {
+                return false;
+            }
+
+            if (mapLeft.containsKey(rihgtChar) && mapLeft.get(rihgtChar) == 1) {
+                mapLeft.remove(rihgtChar);
+            }
+
+            if (mapLeft.containsKey(rihgtChar) && mapLeft.get(rihgtChar) > 1) {
+                mapLeft.put(rihgtChar, mapLeft.get(rihgtChar) - 1);
+            }
         }
 
-        for (Character symbLeft : mapLeft.keySet()) {
-                if ((!mapRight.containsKey(symbLeft))
-                   || (mapLeft.get(symbLeft) != mapRight.get(symbLeft))) {
-                    return false;
-                }
-        }
-
-        return true;
+        return mapLeft.isEmpty();
     }
 
     private static int countInput(String value, Character symbol) {
